@@ -93,6 +93,14 @@ async function run() {
 
 
 
+        app.get('/users', async (req, res) => {
+
+
+            const cursor = all_users.find()
+            const result = await cursor.toArray();
+            res.send(result)
+        })
+
 
 
 
