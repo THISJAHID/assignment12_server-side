@@ -65,6 +65,20 @@ async function run() {
 
         })
 
+        app.get('/user/admin/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email };
+            const user = await all_users.findOne(query);
+            let admin = false;
+            if (user) {
+                admin = user.role === 'admin';
+                console.log(admin)
+            }
+            console.log(admin)
+            res.send({ admin });
+        });
+
+       
 
 
 
