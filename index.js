@@ -78,7 +78,26 @@ async function run() {
             res.send({ admin });
         });
 
-       
+        app.get('/user/trainer/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email };
+            const user = await all_users.findOne(query);
+            let trainer = false;
+            if (user) {
+                trainer = user.role === 'trainer';
+                console.log(trainer)
+            }
+            console.log(trainer)
+            res.send({ trainer });
+        });
+
+
+
+
+
+
+
+
 
 
 
