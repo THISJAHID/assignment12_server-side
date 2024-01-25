@@ -57,7 +57,17 @@ async function run() {
             res.send(result)
 
         })
-      
+        app.post('/subscribes', async (req, res) => {
+            const users = req.body;
+
+            const result = await subscribes.insertOne(users)
+            res.send(result)
+
+        })
+
+
+
+
 
 
 
